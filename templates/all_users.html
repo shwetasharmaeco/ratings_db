@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} Movies {% endblock %}
+
+{% block body %}
+{% for user in users %}
+<ul>
+   <a href= "/all_users/{{user.user_id}}"> <li>{{user.email}}</li> </a>
+</ul>
+
+{% endfor %}
+{% endblock %}

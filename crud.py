@@ -31,6 +31,19 @@ def create_rating(score, movie, user):
 
     return rating
 
+def all_movies():
+    return Movie.query.all()
+
+def get_movie_id(movie_id):
+    return Movie.query.get(movie_id)
+
+def all_users():
+    return User.query.all()
+
+def get_user_id(user_id):
+    return User.query.get(user_id)
+ 
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
