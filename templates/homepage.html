@@ -3,6 +3,8 @@
 {% block title %} Movies Homepage {% endblock %}
 
 {% block body %}
+
+{% if "user_id" in session %}
 <ul>
 <li><a href="/all_movies"> Click to view all movies</a></li>
 <br>
@@ -10,5 +12,39 @@
 </ul>
 
 
+{% else %}
+<h2>Create an Account</h2>
+<form action="/users" method="POST">
+  <p>
+    Email <input type="text" name="email">
+  </p>
+
+  <p>
+    Password <input type="password" name="password">
+  </p>
+
+  <p>
+    <input type="submit">
+  </p>
+</form>
+
+<br>
+
+<h2>Login</h2>
+<br>
+<form action="/handle-login" method="POST">
+    <p>
+    <label>Email:</label>
+    <input type="text" name="email">
+    </p>
+    <p>
+    <label>Password:</label>
+    <input type="text" name="password">
+    </p>
+    <p>
+    <input type="submit">
+    </p>
+  </form>
+  {% endif %}
 
 {% endblock %}
